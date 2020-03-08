@@ -43,9 +43,9 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ];
-        //dd($user);
+        
         $user = \App\User::create($user);
-
+        //dd($user);
         $filename = sprintf('thumbnail_%s.jpg',random_int(1,1000));
         if($request->hasFile('photo'))
         $filename = $request->file('photo')->storeAs('profiles',$filename, 'public');
@@ -58,10 +58,11 @@ class UserController extends Controller
                 'city' => $request->city,
                 'country_id' => $request->country,
                 'photo' => $filename,
-                'phone' => $request->phone
+                'phone' => $request->phone,
 
             ]);
-            // dd($profile);
+            //dd($profile);
+
             $user->profile()->save($profile);
             $user->roles()->attach($request->roles);
             return redirect()->route('users.index');

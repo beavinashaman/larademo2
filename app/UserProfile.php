@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 use App\User;
 
@@ -8,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
-    protected $guard = [];
+    //protected $guard = [];
 
     public function user(){
 
@@ -16,7 +15,7 @@ class UserProfile extends Model
     }
 
     protected $fillable = [
-        'user_id',
+        'user_id','city','country_id','photo','phone',
     ];
    
 
