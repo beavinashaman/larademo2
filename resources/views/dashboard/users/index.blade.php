@@ -47,7 +47,7 @@
               <img src="{{asset('storage/'.$user->profile->photo)}}" class="img-fluid img-thumbnail" height="100" width="100" />
               </td>
               <td>{{$user->profile->city}}</td>
-              <td>{{$user->profile->country}}</td>
+              <td>{{$user->profile->country->name}}</td>
               <td>
               @if(!$user->roles->isEmpty())
              {{$user->roles->implode('name',',')}}

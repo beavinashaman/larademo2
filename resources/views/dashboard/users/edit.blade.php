@@ -2,11 +2,9 @@
 @section('content')
 <form action="{{route('users.update', $user->id)}}" method="post" enctype="multipart/form-data">
 @csrf
+@method('PUT')
 <div class="form-row align-items-center">
-<div class="col-md-12">
-<label for="inputUsername">User Name</label>
-<input type="text" name="username" id="inputUsername" class="form-controll" value="{{$user->username}}" placeholde="Username">
-</div>
+
 
 <div class="col-md-12">
 <label for="inputname">Full Name</label>
@@ -19,13 +17,8 @@
 </div>
 
 <div class="col-md-12">
-<label for="inputPassword">Password</label>
-<input type="password" name="password" id="inputPassword" class="form-controll" value="{{$user->password}}" placeholde="*********">
-</div>
-
-<div class="col-md-12">
 <label for="inputPhone">Phone</label>
-<input type="text" name="phone" id="inputPhone" class="form-controll" value="{{$user->phone}}" placeholde="Phone no.">
+<input type="text" name="phone" id="inputPhone" class="form-controll" value="{{$user->profile->phone}}" placeholde="Phone no.">
 </div>
 
 <div class="col-md-12">
@@ -48,12 +41,12 @@
 <div class="col-md-12">
 <label for="selectRoles">Select Roles</label>
 <select name="roles[]" id="selectRoles" class="form-controll" multiple>
-@if(!roles->isEmpty())
+@if(!$roles->isEmpty())
 @foreach($roles as $role)
 <option
  @if(in_array($role->id, $user->roles->pluck('id')->toArray())) {{"selected"}} 
  @endif 
- value="{{$role->id}}">{{$role->name}}
+ value="{{$role->id}}" > {{$role->name}}
  </option>
 @endforeach
 @endif
