@@ -1,12 +1,19 @@
 <?php
 
 namespace App;
-
+use App\User;
+use App\UserProfile;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
     protected $guarded =[];
+
+
+    // public function user(){
+
+    //     return $this->hasManyThrough(UserProfile::class, 'country_id', 'user_id' ,'id','user_id');
+    // }
 
     public function posts(){
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
-    //protected $guard = [];
+    protected $guard = [];
 
     public function user(){
 

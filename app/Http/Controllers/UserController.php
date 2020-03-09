@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $users = \App\User::with(['roles','profile'])->get();
-        return view('dashboard.users.index',compact('users'));
+        return view('dashboard.users.index', compact('users'));
     }
 
     /**

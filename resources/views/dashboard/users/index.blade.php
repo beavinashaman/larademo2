@@ -18,7 +18,8 @@
         <thead>
             <tr>
               <th>#</th>
-              <th>Title</th>
+              <th>User Name</th>
+              <th>Name</th>
               <th>Thumbnail</th>
               <th>City</th>
               <th>Country</th>
@@ -31,19 +32,22 @@
           </thead>
           <tbody>
 
+<?php
+
+//dd($users);
+?>
 @foreach($users as $user)
 
             <tr>
               <td>{{$user->id}}</td>
               <td>{{$user->username}}</td>
-              
+              <td>{{$user->name}}</td>
               <td>
               <!-- php artisan storage:link -->
               <img src="{{asset('storage/'.$user->profile->photo)}}" class="img-fluid img-thumbnail" height="100" width="100" />
               </td>
               <td>{{$user->profile->city}}</td>
-              <td>{{$user->profile->country->name}}</td>
-
+              <td>{{$user->profile->country}}</td>
               <td>
               @if(!$user->roles->isEmpty())
              {{$user->roles->implode('name',',')}}
@@ -51,10 +55,11 @@
               {{'No role assign'}}
               @endif
               </td>
-
+              
+              
               <td>{{$user->created_at}}</td>
               <td>{{$user->updated_at}}</td>
-             
+
               <td>
               <div class="btn-group" role="group" aria-lable="Basic example">
               <a role="button" href="{{route('users.show', $user->id)}}" class="btn btn-link">View</a>
@@ -67,7 +72,6 @@
               <a role="button" href="{{route('users.edit', $user->id)}}" class="btn btn-link">Edit</a>
               </div>
               </td>
-
             </tr>
 
 @endforeach
