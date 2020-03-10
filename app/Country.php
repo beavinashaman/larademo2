@@ -10,11 +10,6 @@ class Country extends Model
     protected $guarded =[];
 
 
-    // public function user(){
-
-    //     return $this->hasManyThrough(UserProfile::class, 'country_id', 'user_id' ,'id','user_id');
-    // }
-
     public function posts(){
 
         return $this->hasManyThrough(

@@ -15,6 +15,7 @@ class UserController extends Controller
     {
         $users = \App\User::with(['roles','profile'])->get();
         return view('dashboard.users.index', compact('users'));
+        //return response()->json(compact('users'));
     }
 
     /**
@@ -45,7 +46,7 @@ class UserController extends Controller
         ];
         
         $user = \App\User::create($user);
-        dd($user);
+       // dd($user);
         $filename = sprintf('thumbnail_%s.jpg',random_int(1,1000));
         if($request->hasFile('photo'))
         $filename = $request->file('photo')->storeAs('profiles',$filename, 'public');
