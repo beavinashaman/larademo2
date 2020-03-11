@@ -54,6 +54,7 @@
           </tbody>
         </table>
       </div>
+      <div>{{$roles->links()}}</div>
 @else
 <p class="alert alert-info">No Roles Record Found..</p>
 @endif

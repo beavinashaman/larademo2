@@ -78,6 +78,8 @@
           </tbody>
         </table>
       </div>
+
+      <div>{{$users->links()}}</div>
 @else
 <p class="alert alert-info">No user Record Found..</p>
 @endif
